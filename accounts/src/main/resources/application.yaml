@@ -16,3 +16,22 @@ spring:
     show-sql: true
   application:
     name: accounts
+  # config:
+  #   import:
+  #   - "application_qa.yaml"
+  #   - "application_prod.yaml"
+  # profiles:
+  #   active:
+  #   - default
+
+application:
+  version: "0.0.1"
+
+accounts:
+  message: "Accounts service is available (default)"
+  contactDetails:
+    phone: "+1-555-0123"
+    email: "support@eazy.com"
+  onCallSupport:
+    - "team-a"
+    - "team-b"

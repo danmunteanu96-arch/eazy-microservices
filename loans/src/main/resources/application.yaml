@@ -16,3 +16,16 @@ spring:
     show-sql: true
   application:
     name: loans
+
+
+application:
+  version: "0.0.1"
+
+loans:
+  message: "Loans service is available (default)"
+  contactDetails:
+    phone: "+1-555-0123"
+    email: "support@eazy.com"
+  onCallSupport:
+    - "team-a"
+    - "team-b"

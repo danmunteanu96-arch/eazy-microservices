@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eazy.cards.constants.CardsConstants;
+import com.eazy.cards.dto.CardsConfigDto;
 import com.eazy.cards.dto.CardsDto;
 import com.eazy.cards.dto.ResponseDto;
 import com.eazy.cards.service.ICardsService;
@@ -29,6 +30,7 @@ import lombok.AllArgsConstructor;
 public class CardsController {
 
         private ICardsService cardsService;
+        private CardsConfigDto cardsConfigDto;
 
         @GetMapping()
         @RequestMapping(path = "/fetch")
@@ -71,5 +73,11 @@ public class CardsController {
                                                 new ResponseDto(
                                                                 CardsConstants.MESSAGE_500,
                                                                 HttpStatus.INTERNAL_SERVER_ERROR.toString()));
+        }
+
+        
+        @GetMapping("/cards-details")
+        public ResponseEntity<CardsConfigDto> getAccountConfig() {
+                return ResponseEntity.ok(cardsConfigDto);
         }
 }
