@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CardsApplications",
+            "request": "launch",
+            "mainClass": "com.eazy.cards.CardsApplications",
+            "projectName": "cards",
+             "env":{
+                "SPRING_PROFILES_ACTIVE":"prod"
+            }
+        },
+        {
+            "type": "java",
+            "name": "AccountsApplication",
+            "request": "launch",
+            "mainClass": "com.eazy.accounts.AccountsApplication",
+            "projectName": "com.eazy-accounts",
+             "env":{
+                "SPRING_PROFILES_ACTIVE":"prod"
+            }
+        },
+        {
+            "type": "java",
+            "name": "LoansApplication",
+            "request": "launch",
+            "mainClass": "com.eazy.loans.LoansApplication",
+            "projectName": "loans",
+               "env":{
+                "SPRING_PROFILES_ACTIVE":"prod"
+            }
+        }
+    ]
+}

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eazy.loans.constants.LoansConstants;
+import com.eazy.loans.dto.LoansConfigPropDto;
 import com.eazy.loans.dto.LoansDto;
 import com.eazy.loans.dto.ResponseDto;
 import com.eazy.loans.service.ILoansService;
@@ -29,6 +30,7 @@ import lombok.AllArgsConstructor;
 public class LoansController {
 
         private ILoansService loanService;
+        private LoansConfigPropDto loansConfigPropDto;
 
         @GetMapping()
         @RequestMapping(path = "/fetch")
@@ -72,4 +74,10 @@ public class LoansController {
                                                                 LoansConstants.MESSAGE_500,
                                                                 HttpStatus.INTERNAL_SERVER_ERROR.toString()));
         }
+
+        @GetMapping("/loans-details")
+        public ResponseEntity<LoansConfigPropDto> getMethodName() {
+                return ResponseEntity.ok(loansConfigPropDto);
+        }
+
 }

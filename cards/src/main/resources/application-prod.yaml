@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile:
+      - prod
+
+application:
+  version: "0.0.1"
+
+cards:
+  message: "Cards service is available (prod) enviroment"
+  contactDetails:
+    phone: "+1-555-0123"
+    email: "support@eazy.com"
+  onCallSupport:
+    - "team-a"
+    - "team-b"
+
+

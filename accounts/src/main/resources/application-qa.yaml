@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile:
+      - qa
+
+application:
+  version: "0.0.2"
+
+accounts:
+  message: "Accounts service is available in QA environment"
+  contactDetails:
+    phone: "+1-555-0123"
+    email: "support@eazy.com"
+  onCallSupport:
+    - "team-a"
+    - "team-b"
