@@ -28,8 +28,7 @@ import jakarta.validation.constraints.Pattern;
 @RequestMapping(path = "api", produces = { MediaType.APPLICATION_JSON_VALUE })
 @Validated
 public class AccountController {
-        @Value("${application.version}")
-        private String buildVersion;
+       
 
         private final Environment env;
 
@@ -82,10 +81,6 @@ public class AccountController {
                                                                 HttpStatus.INTERNAL_SERVER_ERROR.toString()));
         }
 
-        @GetMapping("/build-info")
-        public ResponseEntity<String> getBuildInfo() {
-                return ResponseEntity.ok(this.buildVersion);
-        }
 
         @GetMapping("/java-version")
         public ResponseEntity<?> getJavaVersion() {
