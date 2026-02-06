@@ -1,0 +1,13 @@
+
+
+application:
+  version: "0.0.1"
+
+loans:
+  message: "Loans service is available (qa) enviroment"
+  contactDetails:
+    phone: "+1-555-0123"
+    email: "support@eazy.com"
+  onCallSupport:
+    - "team-a"
+    - "team-b"

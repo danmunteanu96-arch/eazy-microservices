@@ -3,12 +3,19 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BankingConfigApplication",
+            "request": "launch",
+            "mainClass": "com.spring_cloud_server.banking_config.BankingConfigApplication",
+            "projectName": "banking-config"
+        },
+        {
+            "type": "java",
             "name": "CardsApplications",
             "request": "launch",
             "mainClass": "com.eazy.cards.CardsApplications",
             "projectName": "cards",
-             "env":{
-                "SPRING_PROFILES_ACTIVE":"prod"
+             "env": {
+                "SPRING_PROFILES_ACTIVE": "prod"
             }
         },
         {
@@ -16,9 +23,9 @@
             "name": "AccountsApplication",
             "request": "launch",
             "mainClass": "com.eazy.accounts.AccountsApplication",
-            "projectName": "com.eazy-accounts",
-             "env":{
-                "SPRING_PROFILES_ACTIVE":"prod"
+            "projectName": "accounts",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "prod"
             }
         },
         {
@@ -27,8 +34,8 @@
             "request": "launch",
             "mainClass": "com.eazy.loans.LoansApplication",
             "projectName": "loans",
-               "env":{
-                "SPRING_PROFILES_ACTIVE":"prod"
+             "env": {
+                "SPRING_PROFILES_ACTIVE": "prod"
             }
         }
     ]

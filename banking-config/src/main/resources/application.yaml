@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: "banking-config"
+  profiles:
+    active:
+      - git
+    # active: native
+  cloud:
+    config:
+      server:
+        # native:
+        # search-locations: "classpath:/config"
+        #  search-locations: "file:///Users/user/spring-cloud-config-repo"
+        git:
+          uri: "https://github.com/danmunteanu96-arch/eazy-banking-config.git"
+          default-label: master
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+          
+encrypt:
+  key: "secret"
+
+server:
+  port: 8071
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
