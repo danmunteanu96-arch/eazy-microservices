@@ -142,7 +142,7 @@
                 <version>3.5.1</version>
                 <configuration>
                     <to>
-                        <image>eazybytes/${project.artifactId}:s8</image>
+                        <image>eazybytes/${project.artifactId}:s9</image>
                     </to>
                 </configuration>
             </plugin>
