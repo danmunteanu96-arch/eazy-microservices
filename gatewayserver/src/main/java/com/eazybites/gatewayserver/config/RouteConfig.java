@@ -1,10 +1,13 @@
 package com.eazybites.gatewayserver.config;
 
+import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
+import org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -15,7 +18,9 @@ public class RouteConfig {
 
 
     @Bean
-    public RouteLocator eazyBankRouteConfig(RouteLocatorBuilder builder) {
+    public RouteLocator eazyBankRouteConfig(RouteLocatorBuilder builder,
+                                            RedisRateLimiter redisRateLimiter,
+                                            KeyResolver userKeyResolver) {
         return builder
                 .routes()
                 .route("accounts_route",
@@ -43,9 +48,17 @@ public class RouteConfig {
                 .route("cards_route",
                         p -> p
                                 .path("/eazybank/cards/**")
-                                .filters(f -> f.rewritePath("/eazybank/cards/(?<segment>.*)", "/${segment}"))
+                                .filters(f -> f
+                                        .rewritePath("/eazybank/cards/(?<segment>.*)", "/${segment}")
+                                        .requestRateLimiter(config -> config
+                                                .setRateLimiter(redisRateLimiter)
+                                                .setKeyResolver(userKeyResolver)
+                                        )
+                                )
                                 .uri("lb://cards"))
 
                 .build();
     }
+
+
 }
