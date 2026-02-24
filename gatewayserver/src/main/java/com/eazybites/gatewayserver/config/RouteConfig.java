@@ -16,7 +16,10 @@ public class RouteConfig {
                 .route("accounts_route",
                         p -> p
                                 .path("/eazybank/accounts/**")
-                                .filters(f -> f.rewritePath("/eazybank/accounts/(?<segment>.*)", "/${segment}"))
+                                .filters(f -> f.rewritePath("/eazybank/accounts/(?<segment>.*)", "/${segment}")
+                                        .circuitBreaker(config -> config.setName("accountsCircuitBreaker").setFallbackUri("forward:/contactSupport"))
+
+                                )
                                 .uri("lb://accounts"))
                 .route("loans_route",
                         p -> p
